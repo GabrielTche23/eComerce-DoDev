@@ -10,7 +10,8 @@ var continuar = true;
 while (continuar) {
     ProdutosCadastrados();
     //OrdenarId();
-    OrdenarPreços();
+    //OrdenarPreços();
+    OrdenarAvaliacao();
     var opcao = prompt("Deseja Encerrar?  0 - Continuar / 1 - Encerrar")
     if (opcao == 1) {
         continuar = false
@@ -93,6 +94,32 @@ function OrdenarPreços(){
             precoAux = preco[atual]
             avaliacaoAux = avaliacao[atual]
             if(preco[atual] < preco[seguinte]){
+                id[atual] = id[seguinte]
+                id[seguinte] = idAux
+                nome[atual] = nome[seguinte]
+                nome[seguinte] = nomeAux
+                preco[atual] = preco[seguinte]
+                preco[seguinte] = precoAux
+                avaliacao[atual] = avaliacao[seguinte]
+                avaliacao[seguinte] = avaliacaoAux
+            }
+        }
+    }
+    console.log(id,nome,preco,avaliacao)
+}
+
+function OrdenarAvaliacao(){
+    var idAux = 0;
+    var nomeAux = 0;
+    var precoAux = 0;
+    var avaliacaoAux = 0;
+    for (var atual = 0; atual < contador - 1 ; atual++) {
+        for (var seguinte = atual + 1; seguinte < contador; seguinte++) {
+            idAux = id[atual]
+            nomeAux = nome[atual]
+            precoAux = preco[atual]
+            avaliacaoAux = avaliacao[atual]
+            if(avaliacao[atual] <= avaliacao[seguinte]){
                 id[atual] = id[seguinte]
                 id[seguinte] = idAux
                 nome[atual] = nome[seguinte]
