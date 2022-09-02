@@ -11,11 +11,13 @@ while (continuar) {
     ProdutosCadastrados();
     //OrdenarId();
     //OrdenarPreços();
-    OrdenarAvaliacao();
+    //OrdenarAvaliacao();
+    NovoPreço(1,150);
     var opcao = prompt("Deseja Encerrar?  0 - Continuar / 1 - Encerrar")
     if (opcao == 1) {
         continuar = false
     }
+    console.log(preco)
 }
 
 
@@ -132,4 +134,12 @@ function OrdenarAvaliacao(){
         }
     }
     console.log(id,nome,preco,avaliacao)
+}
+
+function NovoPreço(idParametro,valorParametro){
+    for (index = 0; index < contador; index++){
+        if(idParametro == id[index]){
+            preco[index] = valorParametro
+        }
+    }
 }
